@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import solver.Solver;
 import solver.Strategy;
 
-public class SolverTestT3 {
+public class SolverFirstTest {
 
     @Test
     public void testDFS1() {

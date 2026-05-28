@@ -76,7 +76,7 @@ This arguments returns values depending on what option is selected:
 java -jar rush-hour.jar successors -s [level]
 ```
 
-This argument returs a list of successors, this list contains all the moves to sucessfully complete the game. The list is returned with this tuple:
+This argument returns a list of successors, this list contains all the moves to successfully complete the game. The list is returned with this tuple:
 
 $$
 \langle action, state, cost \rangle
@@ -126,10 +126,10 @@ With strategy searches, these includes the following options:
 
 | Name | Full name | Description |
 | --- | --- | --- |
-| ET | Estimated Time | Returns time execution in *miliseconds* |
+| ET | Estimated Time | Returns time execution in *milliseconds* |
 | TN | Total Nodes | Returns the total number of generated nodes |
 | EN | Expanded Nodes | Returns the total number of expaned nodes |
-| CN | Cutted Nodes | Returns the total number of descarted nodes |
+| CN | Cutted Nodes | Returns the total number of discarded nodes |
 | DF | Depth Final | Returns the depth of goal node |
 
 ### Part Four
@@ -149,7 +149,7 @@ These strategy searches needs the following option:
 | --- | --- | --- |
 | `--heuristic` | `[heuristic]` | Selects an heuristic |
 
-Heuristics are predefinied, in the project there are 3 heurisitcs:
+Heuristics are predefined, in the project there are 3 heuristics:
 
 | Heuristic | Description |
 | --- | --- |

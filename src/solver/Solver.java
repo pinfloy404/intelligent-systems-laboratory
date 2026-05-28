@@ -301,7 +301,7 @@ public class Solver {
     /**
      * Generates a string representation of the solution path.
      * Includes all nodes from the initial state to the goal state,
-    * and optionally the execution statistics.
+     * and optionally the execution statistics.
      * 
      * @param showTime true to include execution time in the statistics.
      * @return String with the path nodes and statistics, or "Empty queue." if there is no solution.

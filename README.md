@@ -2,9 +2,20 @@
 
 A project to automatically solve the Rush Hour game from Intelligent Systems Laboratory.
 
+## What does?
+
+This repository contains a project in *Java 25* to resolve automatically the game [**Rush Hour**](https://en.wikipedia.org/w/index.php?title=Rush_Hour_(puzzle)&oldid=1305962117) using **graph search** methods like **BFS**, **DFS**, **UCS**, **GBF** or **A\*** in the most efficent and optimized way predefined by the **course**.
+
+The game is a puzzle where a main vehicle has to exit the board, moving the other vehicles in a sequence that unlocks a path for the main vehicle to finally exit and complete the puzzle.
+
+This project contains a part for verifying game level, get information about it, get a list of steps to resolve it and resolve it directly using one of the graph searches mentioned.
+
 ## Usage
 
 This project can be executed following these instructions:
+
+> [!WARNING]
+> This project was done in **Java 25**.
 
 ```bash
 #   Clone repository
@@ -119,8 +130,11 @@ With strategy searches, these includes the following options:
 
 | Option | Argument | Description |
 | --- | --- | --- |
-| `--depth` | `[depth]` | Maximum depth, obligatory in **DFS** |
+| `--depth` | `[depth]` | Maximum depth |
 | `--stats` | :x: | Returns different stats from the execution |
+
+> [!WARNING]
+> *--depth* is mandatory in **DFS**.
 
 *stats* argument returns the following values:
 
@@ -143,11 +157,14 @@ This argument gets 2 more strategies:
 | [GBF](https://en.wikipedia.org/w/index.php?title=Best-first_search&oldid=1303126800) | Heuristic | Expands nodes with the lowest heuristic |
 | [A*](https://en.wikipedia.org/w/index.php?title=A*_search_algorithm&oldid=1352790550) | $Cost + Heuristic$ | Expands nodes with the lowest cost and heuristic |
 
-These strategy searches needs the following option:
+These strategy searches **requires** the following option:
 
 | Option | Argument | Description |
 | --- | --- | --- |
 | `--heuristic` | `[heuristic]` | Selects an heuristic |
+
+> [!WARNING]
+> *--heuristic* is mandatory with these strategies.
 
 Heuristics are predefined, in the project there are 3 heuristics:
 

@@ -110,7 +110,7 @@ To search in the nodes, this project includes the following strategies:
 | Strategy | Node value | Description |
 | --- | --- | --- |
 | [BFS](https://en.wikipedia.org/w/index.php?title=Breadth-first_search&oldid=1354179802) | Depth | Explore nodes level by level |
-| [DFS](https://en.wikipedia.org/w/index.php?title=Depth-first_search&oldid=1338987378) | -Depth (Negative depth) | Explore nodes depth-first |
+| [DFS](https://en.wikipedia.org/w/index.php?title=Depth-first_search&oldid=1338987378) | $-Depth$ (Negative depth) | Explore nodes depth-first |
 | [UC](https://en.wikipedia.org/w/index.php?title=Dijkstra%27s_algorithm&oldid=1352136800#Practical_optimizations_and_infinite_graphs) | Cost | Expands nodes with the lowest cumulative cost |
 
 With strategy searches, these includes the following options:
@@ -129,6 +129,31 @@ With strategy searches, these includes the following options:
 | EN | Expanded Nodes | Returns the total number of expaned nodes |
 | CN | Cutted Nodes | Returns the total number of descarted nodes |
 | DF | Depth Final | Returns the depth of goal node |
+
+### Part Four
+
+#### solve II
+
+This argument gets 2 more strategies:
+
+| Strategy | Node value | Description |
+| --- | --- | --- |
+| [GBF](https://en.wikipedia.org/w/index.php?title=Best-first_search&oldid=1303126800) | Heuristic | Expands nodes with the lowest heuristic |
+| [A*](https://en.wikipedia.org/w/index.php?title=A*_search_algorithm&oldid=1352790550) | $Cost + Heuristic$ | Expands nodes with the lowest cost and heuristic |
+
+These strategy searches needs the following option:
+
+| Option | Argument | Description |
+| --- | --- | --- |
+| `--heuristic` | `[heuristic]` | Selects an heuristic |
+
+Heuristics are predefinied, in the project there are 3 heurisitcs:
+
+| Heuristic | Description |
+| --- | --- |
+| 0 | Distance from vehicle *A* to the exit (remaining columns) |
+| 1 | Number of vehicles blocking vehicle *A* |
+| 2 | Sum of Heuristic 0 + Heuristic 1 (combination of both) |
 
 ## License
 

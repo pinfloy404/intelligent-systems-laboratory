@@ -74,10 +74,10 @@ This arguments returns values depending on what option is selected:
 java -jar rush-hour.jar successors -s [level]
 ```
 
-This argument returs a list of successors, this list contains all the moves to sucessfully complete the game. The list is returned with this format:
+This argument returs a list of successors, this list contains all the moves to sucessfully complete the game. The list is returned with this tuple:
 
 $$
-<action, state, cost>
+\langle action, state, cost \rangle
 $$
 
 - Action: Vehicle movement, follows this format: `[A-Z][+-][0-6]`

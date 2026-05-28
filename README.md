@@ -4,6 +4,8 @@ A project to automatically solve the Rush Hour game from Intelligent Systems Lab
 
 ## Usage
 
+This project can be executed following these instructions:
+
 ```bash
 #   Clone repository
 

@@ -93,6 +93,43 @@ This argument gets 2 more arguments:
 | `--goal` | :x: | Asks if level is completed | **TRUE** or **FALSE** |
 | `--move` | `[actions...]` | Returns level state after movements | Level state |
 
+### Part Three
+
+#### solve
+
+```bash
+java -jar rush-hour.jar solve -s [level] [strategy] [option] [option-args]
+```
+
+This argument resolves the game with **graph search**, creating and returning a list of nodes with the solution way with the following format:
+
+`[id, father node id, action, state, cost, depth, heuristic, value]`
+
+To search in the nodes, this project includes the following strategies:
+
+| Strategy | Node value | Description |
+| --- | --- | --- |
+| [BFS](https://en.wikipedia.org/w/index.php?title=Breadth-first_search&oldid=1354179802) | Depth | Explore nodes level by level |
+| [DFS](https://en.wikipedia.org/w/index.php?title=Depth-first_search&oldid=1338987378) | -Depth (Negative depth) | Explore nodes depth-first |
+| [UC](https://en.wikipedia.org/w/index.php?title=Dijkstra%27s_algorithm&oldid=1352136800#Practical_optimizations_and_infinite_graphs) | Cost | Expands nodes with the lowest cumulative cost |
+
+With strategy searches, these includes the following options:
+
+| Option | Argument | Description |
+| --- | --- | --- |
+| `--depth` | `[depth]` | Maximum depth, obligatory in **DFS** |
+| `--stats` | :x: | Returns different stats from the execution |
+
+*stats* argument returns the following values:
+
+| Name | Full name | Description |
+| --- | --- | --- |
+| ET | Estimated Time | Returns time execution in *miliseconds* |
+| TN | Total Nodes | Returns the total number of generated nodes |
+| EN | Expanded Nodes | Returns the total number of expaned nodes |
+| CN | Cutted Nodes | Returns the total number of descarted nodes |
+| DF | Depth Final | Returns the depth of goal node |
+
 ## License
 
 This repository uses the [GPLv3](https://choosealicense.com/licenses/gpl-3.0/) license.

@@ -28,7 +28,7 @@ java -jar rush-hour.jar [args...]
 
 ## Arguments
 
-This project was made step by step, so arguments correspond to parts of the project that was made sequentially.
+This project was carried out in stages, so arguments correspond to different parts of the project, which were developed sequentially.
 
 ### Part One
 
@@ -59,12 +59,39 @@ java -jar rush-hour.jar question -s [level] [option] [option-arg]
 
 This arguments returns values depending on what option is selected:
 
-| Option | Arguments | Description | Returns |
+| Option | Argument | Description | Returns |
 | --- | --- | --- | --- |
 | `--whereis` | `[letter]` | Asks where is a vehicle | $(x_1, y_1) (x_2, y_2)$ |
 | `--howmany` | :x: | Asks for total number of vehicles | **12** |
 | `--size` | `[letter]` | Asks for vehicle size | **2** or **3** |
 | `--what` | `[row,column]` | Asks what vehicle is at postion | **A-Z** or **o** |
+
+### Part Two
+
+#### successors
+
+```bash
+java -jar rush-hour.jar successors -s [level]
+```
+
+This argument returs a list of successors, this list contains all the moves to sucessfully complete the game. The list is returned with this format:
+
+$$
+<action, state, cost>
+$$
+
+- Action: Vehicle movement, follows this format: `[A-Z][+-][0-6]`
+- State: Current level state after action
+- Cost: Cost of the movement, it's calculated as $6 - \text{Action Movement}$
+
+#### question II
+
+This argument gets 2 more arguments:
+
+| Option | Argument | Description | Returns |
+| --- | --- | --- | --- |
+| `--goal` | :x: | Asks if level is completed | **TRUE** or **FALSE** |
+| `--move` | `[actions...]` | Returns level state after movements | Level state |
 
 ## License
 

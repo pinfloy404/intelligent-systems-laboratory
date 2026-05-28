@@ -1,14 +1,17 @@
 # Intelligent Systems Laboratory
 
+![java](https://img.shields.io/badge/Java-25-red)
+![gpl](https://img.shields.io/badge/License-GPLv3-blue)
+
 A project to automatically solve the Rush Hour game from Intelligent Systems Laboratory.
 
-## What does?
+## Overview
 
-This repository contains a project in *Java 25* to resolve automatically the game [**Rush Hour**](https://en.wikipedia.org/w/index.php?title=Rush_Hour_(puzzle)&oldid=1305962117) using **graph search** methods like **BFS**, **DFS**, **UCS**, **GBF** or **A\*** in the most efficent and optimized way predefined by the **course**.
+This repository contains a *Java 25* project that automatically solves [**Rush Hour**](https://en.wikipedia.org/w/index.php?title=Rush_Hour_(puzzle)&oldid=1305962117) game using **graph search** methods like **BFS**, **DFS**, **UCS**, **GBF** or **A\*** according to the **course** specifications.
 
 The game is a puzzle where a main vehicle has to exit the board, moving the other vehicles in a sequence that unlocks a path for the main vehicle to finally exit and complete the puzzle.
 
-This project contains a part for verifying game level, get information about it, get a list of steps to resolve it and resolve it directly using one of the graph searches mentioned.
+This project includes commands for verifying game level, retrieving information about it, creating a list of steps to complete it and solving it directly using one of the graph searches mentioned.
 
 ## Usage
 
@@ -39,9 +42,9 @@ jar --create --file rush-hour.jar -C bin .
 java -jar rush-hour.jar [args...]
 ```
 
-## Arguments
+## Commands
 
-This project was carried out in stages, so arguments correspond to different parts of the project, which were developed sequentially.
+This project was carried out in stages, so commands correspond to different parts of the project, which were developed sequentially.
 
 ### Part One
 
@@ -51,7 +54,7 @@ This project was carried out in stages, so arguments correspond to different par
 java -jar rush-hour.jar verify -s [level]
 ```
 
-This argument verifies that string level is valid following this rules:
+This command verifies that string level is valid following this rules:
 
 | Rule | Description | Code |
 | --- | --- | --- |
@@ -70,14 +73,14 @@ This argument verifies that string level is valid following this rules:
 java -jar rush-hour.jar question -s [level] [option] [option-arg]
 ```
 
-This arguments returns values depending on what option is selected:
+This command returns values depending on what option is selected:
 
 | Option | Argument | Description | Returns |
 | --- | --- | --- | --- |
 | `--whereis` | `[letter]` | Asks where is a vehicle | $(x_1, y_1) (x_2, y_2)$ |
 | `--howmany` | :x: | Asks for total number of vehicles | **12** |
 | `--size` | `[letter]` | Asks for vehicle size | **2** or **3** |
-| `--what` | `[row,column]` | Asks what vehicle is at postion | **A-Z** or **o** |
+| `--what` | `[row,column]` | Asks what vehicle is at position | **A-Z** or **o** |
 
 ### Part Two
 
@@ -87,7 +90,7 @@ This arguments returns values depending on what option is selected:
 java -jar rush-hour.jar successors -s [level]
 ```
 
-This argument returns a list of successors, this list contains all the moves to successfully complete the game. The list is returned with this tuple:
+This command returns all valid moves and level states to successfully solve the game. The list is returned with this tuple:
 
 $$
 \langle action, state, cost \rangle
@@ -99,7 +102,7 @@ $$
 
 #### question II
 
-This argument gets 2 more arguments:
+This command gets 2 more options:
 
 | Option | Argument | Description | Returns |
 | --- | --- | --- | --- |
@@ -114,7 +117,7 @@ This argument gets 2 more arguments:
 java -jar rush-hour.jar solve -s [level] [strategy] [option] [option-args]
 ```
 
-This argument resolves the game with **graph search**, creating and returning a list of nodes with the solution way with the following format:
+This command solves the game with **graph search**, creating and returning a list of nodes with the solution way with the following format:
 
 `[id, father node id, action, state, cost, depth, heuristic, value]`
 
@@ -122,11 +125,11 @@ To search in the nodes, this project includes the following strategies:
 
 | Strategy | Node value | Description |
 | --- | --- | --- |
-| [BFS](https://en.wikipedia.org/w/index.php?title=Breadth-first_search&oldid=1354179802) | Depth | Explore nodes level by level |
-| [DFS](https://en.wikipedia.org/w/index.php?title=Depth-first_search&oldid=1338987378) | $-Depth$ (Negative depth) | Explore nodes depth-first |
+| [BFS](https://en.wikipedia.org/w/index.php?title=Breadth-first_search&oldid=1354179802) | Depth | Explores nodes level by level |
+| [DFS](https://en.wikipedia.org/w/index.php?title=Depth-first_search&oldid=1338987378) | $-Depth$ (Negative depth) | Explores nodes depth-first |
 | [UC](https://en.wikipedia.org/w/index.php?title=Dijkstra%27s_algorithm&oldid=1352136800#Practical_optimizations_and_infinite_graphs) | Cost | Expands nodes with the lowest cumulative cost |
 
-With strategy searches, these includes the following options:
+These strategy searches includes the following options:
 
 | Option | Argument | Description |
 | --- | --- | --- |
@@ -136,28 +139,28 @@ With strategy searches, these includes the following options:
 > [!WARNING]
 > *--depth* is mandatory in **DFS**.
 
-*stats* argument returns the following values:
+*stats* flag returns the following values:
 
 | Name | Full name | Description |
 | --- | --- | --- |
 | ET | Estimated Time | Returns time execution in *milliseconds* |
 | TN | Total Nodes | Returns the total number of generated nodes |
-| EN | Expanded Nodes | Returns the total number of expaned nodes |
-| CN | Cutted Nodes | Returns the total number of discarded nodes |
+| EN | Expanded Nodes | Returns the total number of expanded nodes |
+| CN | Cut Nodes | Returns the total number of discarded nodes |
 | DF | Depth Final | Returns the depth of goal node |
 
 ### Part Four
 
 #### solve II
 
-This argument gets 2 more strategies:
+This command gets 2 more strategies:
 
 | Strategy | Node value | Description |
 | --- | --- | --- |
 | [GBF](https://en.wikipedia.org/w/index.php?title=Best-first_search&oldid=1303126800) | Heuristic | Expands nodes with the lowest heuristic |
 | [A*](https://en.wikipedia.org/w/index.php?title=A*_search_algorithm&oldid=1352790550) | $Cost + Heuristic$ | Expands nodes with the lowest cost and heuristic |
 
-These strategy searches **requires** the following option:
+These strategy searches **require** the following option:
 
 | Option | Argument | Description |
 | --- | --- | --- |

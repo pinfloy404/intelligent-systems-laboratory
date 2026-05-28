@@ -1,6 +1,7 @@
 # Intelligent Systems Laboratory
 
 ![java](https://img.shields.io/badge/Java-25-orange)
+![doc](https://img.shields.io/badge/Documentation-Javadoc-yellow)
 ![uclm](https://img.shields.io/badge/University-UCLM-red)
 ![gpl](https://img.shields.io/badge/License-GPLv3-blue)
 
@@ -8,18 +9,15 @@ A project to automatically solve the Rush Hour game from Intelligent Systems Lab
 
 ## Overview
 
-This repository contains a *Java 25* project that automatically solves [**Rush Hour**](https://en.wikipedia.org/w/index.php?title=Rush_Hour_(puzzle)&oldid=1305962117) game using **graph search** methods like **BFS**, **DFS**, **UCS**, **GBF** or **A\*** according to the **course** specifications.
+This repository contains a **Java 25** project that automatically solves [**Rush Hour**](https://en.wikipedia.org/w/index.php?title=Rush_Hour_(puzzle)&oldid=1305962117) game using **graph search** methods like **BFS**, **DFS**, **UCS**, **GBF** or **A\*** according to the **course** specifications.
 
-The game is a puzzle where a main vehicle has to exit the board, moving the other vehicles in a sequence that unlocks a path for the main vehicle to finally exit and complete the puzzle.
+The game is a **puzzle** where a main vehicle has to exit the board, moving the other vehicles in a sequence that unlocks a path for the main vehicle to finally exit and complete the puzzle.
 
-This project includes commands for verifying game level, retrieving information about it, creating a list of steps to complete it and solving it directly using one of the graph searches mentioned.
+This project includes **commands** for verifying game level, retrieving information about it, creating a list of steps to complete it and solving it directly using one of the graph searches mentioned.
 
 ## Usage
 
 This project can be executed following these instructions:
-
-> [!WARNING]
-> This project was done in **Java 25**.
 
 ```bash
 #   Clone repository

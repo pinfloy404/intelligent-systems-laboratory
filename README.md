@@ -1,6 +1,7 @@
 # Intelligent Systems Laboratory
 
-![java](https://img.shields.io/badge/Java-25-red)
+![java](https://img.shields.io/badge/Java-25-orange)
+![uclm](https://img.shields.io/badge/University-UCLM-red)
 ![gpl](https://img.shields.io/badge/License-GPLv3-blue)
 
 A project to automatically solve the Rush Hour game from Intelligent Systems Laboratory.
@@ -176,6 +177,22 @@ Heuristics are predefined, in the project there are 3 heuristics:
 | 0 | Distance from vehicle *A* to the exit (remaining columns) |
 | 1 | Number of vehicles blocking vehicle *A* |
 | 2 | Sum of Heuristic 0 + Heuristic 1 (combination of both) |
+
+## Javadoc
+
+This project contains *Javadoc* comments documenting all Java classes. To generate the documentation, use the following command:
+
+```bash
+javadoc -d docs -sourcepath src src/*/*.java
+```
+
+The generated documentation it's at **`docs/index.html`**, or by opening it directly with one of these commands depending on which *operating system* is in use:
+
+| Operating System | Command |
+| --- | --- |
+| Windows | `start docs/index.html` |
+| macOS | `open docs/index.html` |
+| Linux | `xdg-open docs/index.html` |
 
 ## License
 

@@ -247,7 +247,7 @@ java -jar rush-hour.jar solver -s oBBBKMCCoIKMAAoILoGDDJLoGoHJEEFFHooo --strateg
 ```
 
 ```bash
-#  Node example output
+#  Node output format
 [id, parent, action, state, cost, depth, heuristic, value]
 
 #  Command output

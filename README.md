@@ -1,16 +1,18 @@
 # Intelligent Systems Laboratory
 
 ![java](https://img.shields.io/badge/Java-25-orange)
-![doc](https://img.shields.io/badge/Documentation-Javadoc-yellow)
-![test](https://img.shields.io/badge/Testing-JUnit_6-green)
+![doc](https://img.shields.io/badge/Docs-Javadoc-yellow)
+![test](https://img.shields.io/badge/Tests-JUnit_6-green)
 ![uclm](https://img.shields.io/badge/University-UCLM-red)
 ![gpl](https://img.shields.io/badge/License-GPLv3-blue)
 
-A project to automatically solve the Rush Hour game from Intelligent Systems Laboratory.
+A Java implementation that solves Rush Hour game using graph search algorithms.
+
+Developed for Intelligent Systems course's Laboratory.
 
 ## Overview
 
-This repository contains a **Java 25** project that automatically solves [Rush Hour](https://en.wikipedia.org/w/index.php?title=Rush_Hour_(puzzle)&oldid=1305962117) game using **graph search** methods like **BFS**, **DFS**, **UCS**, **GBF** or **A\*** according to the **course** specifications.
+This repository contains a **Java 25** project that automatically solves [Rush Hour](https://en.wikipedia.org/w/index.php?title=Rush_Hour_(puzzle)&oldid=1305962117) game using **graph search algorithms** methods like **BFS**, **DFS**, **UCS**, **GBF** or **A\*** according to the **course** specifications.
 
 The game is a **puzzle** where a main vehicle has to exit the board, moving the other vehicles in a sequence that unlocks a path for the main vehicle to finally exit and complete the puzzle.
 
@@ -40,15 +42,15 @@ javac -d bin --source-path "src;test" -cp "lib/*" (Get-ChildItem -Recurse src,te
 
 ```bash
 #   Create .jar file from compiled .java files
-jar --create --file rush-hour.jar -C bin .
+jar --create --file rush-hour.jar --main-class main.Main -C bin .
 
 #   Execute .jar file
-java -jar rush-hour.jar [args...]
+java -cp rush-hour.jar main.Main [args...]
 ```
 
 ## Commands
 
-This project was carried out in stages, so commands correspond to different parts of the project, which were developed sequentially.
+This project is structured in four incremental stages, each introducing new functionality, so each command correspond to different parts of the project, which were developed sequentially.
 
 ### Part One
 
@@ -106,7 +108,7 @@ $$
 
 #### question II
 
-This command gets 2 more options:
+Two additional options are avaliable:
 
 | Option | Argument | Description | Returns |
 | --- | --- | --- | --- |
@@ -115,13 +117,13 @@ This command gets 2 more options:
 
 ### Part Three
 
-#### solve
+#### solver
 
 ```bash
-java -jar rush-hour.jar solve -s [level] [strategy] [option] [option-args]
+java -jar rush-hour.jar solver -s [level] [strategy] [option] [option-args]
 ```
 
-This command solves the game with **graph search**, creating and returning a list of nodes with the solution way with the following format:
+This command solves the game with **graph search**, returning the sequence of nodes that leads to solution with the following format:
 
 `[id, father node id, action, state, cost, depth, heuristic, value]`
 
@@ -155,9 +157,9 @@ These strategy searches includes the following options:
 
 ### Part Four
 
-#### solve II
+#### solver II
 
-This command gets 2 more strategies:
+Two additional strategies are avaliable:
 
 | Strategy | Node value | Description |
 | --- | --- | --- |
@@ -179,14 +181,14 @@ Heuristics are predefined, in the project there are 3 heuristics:
 | --- | --- |
 | 0 | Distance from vehicle *A* to the exit (remaining columns) |
 | 1 | Number of vehicles blocking vehicle *A* |
-| 2 | Sum of Heuristic 0 + Heuristic 1 (combination of both) |
+| 2 | $h_2(n)=h_0(n)+h_1(n)$ (combination of both) |
 
 ## Javadoc
 
 This project contains [Javadoc](https://docs.oracle.com/en/java/javase/25/javadoc/index.html) comments documenting all Java classes. Generating documentation can be done using the following command:
 
 ```bash
-javadoc -d docs -sourcepath src src/*/*.java
+javadoc -d docs -sourcepath src $(find src -name "*.java")
 ```
 
 The generated documentation it's at **`docs/index.html`**, or by opening it directly with one of these commands depending on which *operating system* is in use:
@@ -199,7 +201,7 @@ The generated documentation it's at **`docs/index.html`**, or by opening it dire
 
 ## Testing
 
-This project contains a testing module made in [JUnit 6](https://junit.org/) located at `test` folder. This tests checks that project works successfully according to **course** specifications. Executing tests can be done using the following commands:
+This project contains a testing module made in [JUnit 6](https://junit.org/) located at `test` folder. These tests checks that project works successfully according to **course** specifications. Executing tests can be done using the following commands:
 
 ```bash
 #   Executes all tests
@@ -209,15 +211,44 @@ java -jar lib/junit-platform-console-standalone-6.1.0.jar execute -cp rush-hour.
 ```bash
 #   Executes Part One Tests
 java -jar lib/junit-platform-console-standalone-6.1.0.jar execute -cp rush-hour.jar --select-class test.VerifyTest --select-class test.QuestionTest
+```
 
+```bash
 #   Executes Part Two Tests
 java -jar lib/junit-platform-console-standalone-6.1.0.jar execute -cp rush-hour.jar --select-class test.SuccessorsTest
+```
 
+```bash
 #   Executes Part Three Tests
 java -jar lib/junit-platform-console-standalone-6.1.0.jar execute -cp rush-hour.jar --select-class test.SolverFirstTest
+```
 
+```bash
 #   Executes Part Four Tests
 java -jar lib/junit-platform-console-standalone-6.1.0.jar execute -cp rush-hour.jar --select-class test.SolverSecondTest
+```
+
+## Example
+
+This example solves the game using **A\* algorithm** with **2** heuristics and showing run stats:
+
+```bash
+java -jar rush-hour.jar solver -s oBBBKMCCoIKMAAoILoGDDJLoGoHJEEFFHooo --strategy AStar --heuristic 2 --stats
+```
+
+```bash
+[0,none,___,oBBBKMCCoIKMAAoILoGDDJLoGoHJEEFFHooo,0,0,6,6]
+[1,0,A+1,oBBBKMCCoIKMoAAILoGDDJLoGoHJEEFFHooo,5,1,5,10]
+[9,1,C+1,oBBBKMoCCIKMoAAILoGDDJLoGoHJEEFFHooo,10,2,5,15]
+[60,9,G+3,GBBBKMGCCIKMoAAILooDDJLoooHJEEFFHooo,13,3,5,18]
+[188,60,D-1,GBBBKMGCCIKMoAAILoDDoJLoooHJEEFFHooo,18,4,5,23]
+[541,188,H+1,GBBBKMGCCIKMoAAILoDDHJLoooHJEEFFoooo,23,5,5,28]
+[...]
+ET: 386
+TN: 142104
+EN: 13330
+CN: 117496
+DF: 39
 ```
 
 ## License

@@ -6,7 +6,7 @@
 ![gpl](https://img.shields.io/badge/License-GPLv3-blue)
 ![uclm](https://img.shields.io/badge/University-UCLM-red)
 
-A Java implementation that solves Rush Hour game using graph search algorithms.
+A Java implementation that solves Rush Hour game using graph search algorithms.pinfloy404/intelligent-systems-laboratory
 
 Developed for the Intelligent Systems course Laboratory.
 
@@ -195,7 +195,7 @@ This project contains [Javadoc](https://docs.oracle.com/en/java/javase/25/javado
 javadoc -d docs -sourcepath src $(find src -name "*.java")
 ```
 
-The generated documentation it's at **`docs/index.html`**, or by opening it directly with one of these commands depending on which *operating system* is in use:
+The generated documentation it's at `docs/index.html`, or by opening it directly with one of these commands depending on which *operating system* is in use:
 
 | Operating System | Command |
 | --- | --- |

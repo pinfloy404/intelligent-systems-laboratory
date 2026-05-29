@@ -2,6 +2,7 @@
 
 ![java](https://img.shields.io/badge/Java-25-orange)
 ![doc](https://img.shields.io/badge/Documentation-Javadoc-yellow)
+![test](https://img.shields.io/badge/Testing-JUnit_6-green)
 ![uclm](https://img.shields.io/badge/University-UCLM-red)
 ![gpl](https://img.shields.io/badge/License-GPLv3-blue)
 
@@ -9,7 +10,7 @@ A project to automatically solve the Rush Hour game from Intelligent Systems Lab
 
 ## Overview
 
-This repository contains a **Java 25** project that automatically solves [**Rush Hour**](https://en.wikipedia.org/w/index.php?title=Rush_Hour_(puzzle)&oldid=1305962117) game using **graph search** methods like **BFS**, **DFS**, **UCS**, **GBF** or **A\*** according to the **course** specifications.
+This repository contains a **Java 25** project that automatically solves [Rush Hour](https://en.wikipedia.org/w/index.php?title=Rush_Hour_(puzzle)&oldid=1305962117) game using **graph search** methods like **BFS**, **DFS**, **UCS**, **GBF** or **A\*** according to the **course** specifications.
 
 The game is a **puzzle** where a main vehicle has to exit the board, moving the other vehicles in a sequence that unlocks a path for the main vehicle to finally exit and complete the puzzle.
 
@@ -21,23 +22,27 @@ This project can be executed following these instructions:
 
 ```bash
 #   Clone repository
-
 git clone https://github.com/pinfloy404/intelligent-systems-laboratory.git
 
 #   Access to directory
-
 cd intelligent-systems-laboratory
+```
 
-#   Compile all .java files
+```bash
+#   Compile all .java files (Linux / macOS)
+javac -d bin --source-path src:test -cp "lib/*" $(find src test -name "*.java")
+```
 
-javac -d bin --source-path src $(find src -name "*.java")
+```powershell
+#   Compile all .java files (Windows / PowerShell)
+javac -d bin --source-path "src;test" -cp "lib/*" (Get-ChildItem -Recurse src,test -Filter *.java | ForEach-Object { $_.FullName })
+```
 
+```bash
 #   Create .jar file from compiled .java files
-
 jar --create --file rush-hour.jar -C bin .
 
 #   Execute .jar file
-
 java -jar rush-hour.jar [args...]
 ```
 
@@ -178,7 +183,7 @@ Heuristics are predefined, in the project there are 3 heuristics:
 
 ## Javadoc
 
-This project contains *Javadoc* comments documenting all Java classes. To generate the documentation, use the following command:
+This project contains [Javadoc](https://docs.oracle.com/en/java/javase/25/javadoc/index.html) comments documenting all Java classes. Generating documentation can be done using the following command:
 
 ```bash
 javadoc -d docs -sourcepath src src/*/*.java
@@ -191,6 +196,29 @@ The generated documentation it's at **`docs/index.html`**, or by opening it dire
 | Windows | `start docs/index.html` |
 | macOS | `open docs/index.html` |
 | Linux | `xdg-open docs/index.html` |
+
+## Testing
+
+This project contains a testing module made in [JUnit 6](https://junit.org/) located at `test` folder. This tests checks that project works successfully according to **course** specifications. Executing tests can be done using the following commands:
+
+```bash
+#   Executes all tests
+java -jar lib/junit-platform-console-standalone-6.1.0.jar execute -cp rush-hour.jar --scan-classpath
+```
+
+```bash
+#   Executes Part One Tests
+java -jar lib/junit-platform-console-standalone-6.1.0.jar execute -cp rush-hour.jar --select-class test.VerifyTest --select-class test.QuestionTest
+
+#   Executes Part Two Tests
+java -jar lib/junit-platform-console-standalone-6.1.0.jar execute -cp rush-hour.jar --select-class test.SuccessorsTest
+
+#   Executes Part Three Tests
+java -jar lib/junit-platform-console-standalone-6.1.0.jar execute -cp rush-hour.jar --select-class test.SolverFirstTest
+
+#   Executes Part Four Tests
+java -jar lib/junit-platform-console-standalone-6.1.0.jar execute -cp rush-hour.jar --select-class test.SolverSecondTest
+```
 
 ## License
 

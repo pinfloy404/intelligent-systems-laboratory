@@ -3,8 +3,8 @@
 ![java](https://img.shields.io/badge/Java-25-orange)
 ![doc](https://img.shields.io/badge/Docs-Javadoc-yellow)
 ![test](https://img.shields.io/badge/Tests-JUnit_6-green)
-![uclm](https://img.shields.io/badge/University-UCLM-red)
 ![gpl](https://img.shields.io/badge/License-GPLv3-blue)
+![uclm](https://img.shields.io/badge/University-UCLM-red)
 
 A Java implementation that solves Rush Hour game using graph search algorithms.
 
@@ -23,29 +23,31 @@ This project includes **commands** for verifying game level, retrieving informat
 This project can be executed following these instructions:
 
 ```bash
-#   Clone repository
+#   Clones repository
 git clone https://github.com/pinfloy404/intelligent-systems-laboratory.git
 
-#   Access to directory
+#   Accesses to directory
 cd intelligent-systems-laboratory
 ```
 
 ```bash
-#   Compile all .java files (Linux / macOS)
+#   Compiles all .java files (Linux / macOS)
 javac -d bin --source-path src:test -cp "lib/*" $(find src test -name "*.java")
 ```
 
 ```powershell
-#   Compile all .java files (Windows / PowerShell)
+#   Compiles all .java files (Windows / PowerShell)
 javac -d bin --source-path "src;test" -cp "lib/*" (Get-ChildItem -Recurse src,test -Filter *.java | ForEach-Object { $_.FullName })
 ```
 
 ```bash
-#   Create .jar file from compiled .java files
+#   Creates .jar file from compiled .java files
 jar --create --file rush-hour.jar --main-class main.Main -C bin .
+```
 
-#   Execute .jar file
-java -cp rush-hour.jar main.Main [args...]
+```bash
+#   Executes .jar file
+java -jar rush-hour.jar [args...]
 ```
 
 ## Commands
@@ -181,7 +183,7 @@ Heuristics are predefined, in the project there are 3 heuristics:
 | --- | --- |
 | 0 | Distance from vehicle *A* to the exit (remaining columns) |
 | 1 | Number of vehicles blocking vehicle *A* |
-| 2 | $h_2(n)=h_0(n)+h_1(n)$ (combination of both) |
+| 2 | $h_2(n) = h_0(n) + h_1(n)$ (combination of both) |
 
 ## Javadoc
 
@@ -230,7 +232,7 @@ java -jar lib/junit-platform-console-standalone-6.1.0.jar execute -cp rush-hour.
 
 ## Example
 
-This example solves the game using **A\* algorithm** with **2** heuristics and showing run stats:
+This example solves the game using **A\* algorithm** with $h_2(n)$ and showing run stats:
 
 ```bash
 java -jar rush-hour.jar solver -s oBBBKMCCoIKMAAoILoGDDJLoGoHJEEFFHooo --strategy AStar --heuristic 2 --stats

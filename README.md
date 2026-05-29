@@ -8,7 +8,7 @@
 
 A Java implementation that solves Rush Hour game using graph search algorithms.
 
-Developed for Intelligent Systems course's Laboratory.
+Developed for the Intelligent Systems course Laboratory.
 
 ## Overview
 

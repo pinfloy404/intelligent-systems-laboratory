@@ -6,7 +6,7 @@
 ![gpl](https://img.shields.io/badge/License-GPLv3-blue)
 ![uclm](https://img.shields.io/badge/University-UCLM-red)
 
-A Java implementation that solves Rush Hour game using graph search algorithms.pinfloy404/intelligent-systems-laboratory
+A Java implementation that solves Rush Hour game using graph search algorithms.
 
 Developed for the Intelligent Systems course Laboratory.
 
@@ -50,7 +50,7 @@ jar --create --file rush-hour.jar --main-class main.Main -C bin .
 java -jar rush-hour.jar [args...]
 ```
 
-Or you can download the last version compiled directly from [**Releases**](https://github.com/pinfloy404/intelligent-systems-laboratory/releases/).
+Or you can download the lastest version, compiled directly at [**Releases**](https://github.com/pinfloy404/intelligent-systems-laboratory/releases/).
 
 ## Commands
 
@@ -64,7 +64,7 @@ This project is structured in four incremental stages, each introducing new func
 java -jar rush-hour.jar verify -s [level]
 ```
 
-This command verifies that string level is valid following this rules:
+This command verifies that string level is valid according to this predefined rules:
 
 | Rule | Description | Code |
 | --- | --- | --- |
@@ -100,11 +100,7 @@ This command returns values depending on what option is selected:
 java -jar rush-hour.jar successors -s [level]
 ```
 
-This command returns all valid moves and level states to successfully solve the game. The list is returned with this tuple:
-
-$$
-\langle action, state, cost \rangle
-$$
+This command returns all valid moves and level states to successfully solve the game. Returns a list of succesors with these variables according to the tuple `<action, state, cost>`:
 
 - Action: Vehicle movement, follows this format: `[A-Z][+-][0-6]`
 - State: Current level state after action
@@ -127,11 +123,21 @@ Two additional options are avaliable:
 java -jar rush-hour.jar solver -s [level] [strategy] [option] [option-args]
 ```
 
-This command solves the game with **graph search**, returning the sequence of nodes that leads to solution with the following format:
+This command solves the game with **graph search**, returning the sequence of nodes that leads to solution with these predefined node variables:
 
-`[id, father node id, action, state, cost, depth, heuristic, value]`
+-  ID: Node ID
+-  Parent: Parent node ID
+-  Action: Movement applied to reach state
+-  State: Current level
+-  Cost: Cost to reach state
+-  Depth: Node depth in graph
+-  Heuristic: Heuristic value used by search algorithm
+-  Value: Node value depending on graph search algorithm
 
-To search in the nodes, this project includes the following strategies:
+> [!IMPORTANT]
+> The order of the variables in this list matches the order in which they appear in the node output 
+
+To search in the nodes, this project includes these strategies:
 
 | Strategy | Node value | Description |
 | --- | --- | --- |
@@ -139,7 +145,7 @@ To search in the nodes, this project includes the following strategies:
 | [DFS](https://en.wikipedia.org/w/index.php?title=Depth-first_search&oldid=1338987378) | $-Depth$ (Negative depth) | Explores nodes depth-first |
 | [UC](https://en.wikipedia.org/w/index.php?title=Dijkstra%27s_algorithm&oldid=1352136800#Practical_optimizations_and_infinite_graphs) | Cost | Expands nodes with the lowest cumulative cost |
 
-These strategy searches includes the following options:
+These strategy searches includes these options:
 
 | Option | Argument | Description |
 | --- | --- | --- |
@@ -149,7 +155,7 @@ These strategy searches includes the following options:
 > [!WARNING]
 > *--depth* is mandatory in **DFS**.
 
-*stats* flag returns the following values:
+*stats* flag returns these values:
 
 | Name | Full name | Description |
 | --- | --- | --- |
@@ -170,7 +176,7 @@ Two additional strategies are avaliable:
 | [GBF](https://en.wikipedia.org/w/index.php?title=Best-first_search&oldid=1303126800) | Heuristic | Expands nodes with the lowest heuristic |
 | [A*](https://en.wikipedia.org/w/index.php?title=A*_search_algorithm&oldid=1352790550) | $Cost + Heuristic$ | Expands nodes with the lowest cost and heuristic |
 
-These strategy searches **require** the following option:
+These strategy searches **require** this option:
 
 | Option | Argument | Description |
 | --- | --- | --- |
@@ -179,7 +185,7 @@ These strategy searches **require** the following option:
 > [!WARNING]
 > *--heuristic* is mandatory with these strategies.
 
-Heuristics are predefined, in the project there are 3 heuristics:
+Heuristics are predefined, in this project, there are 3 heuristics:
 
 | Heuristic | Description |
 | --- | --- |
@@ -205,7 +211,7 @@ The generated documentation it's at `docs/index.html`, or by opening it directly
 
 ## Testing
 
-This project contains a testing module made in [JUnit 6](https://junit.org/) located at `test` folder. These tests checks that project works successfully according to **course** specifications. Executing tests can be done using the following commands:
+This project contains a testing module made in [JUnit 6](https://junit.org/) located at `test` folder. These tests checks that project works successfully according to **course** specifications. Executing tests can be done using these commands:
 
 ```bash
 #   Executes all tests
@@ -241,6 +247,10 @@ java -jar rush-hour.jar solver -s oBBBKMCCoIKMAAoILoGDDJLoGoHJEEFFHooo --strateg
 ```
 
 ```bash
+#  Node example output
+[id, parent, action, state, cost, depth, heuristic, value]
+
+#  Command output
 [0,none,___,oBBBKMCCoIKMAAoILoGDDJLoGoHJEEFFHooo,0,0,6,6]
 [1,0,A+1,oBBBKMCCoIKMoAAILoGDDJLoGoHJEEFFHooo,5,1,5,10]
 [9,1,C+1,oBBBKMoCCIKMoAAILoGDDJLoGoHJEEFFHooo,10,2,5,15]
@@ -248,6 +258,8 @@ java -jar rush-hour.jar solver -s oBBBKMCCoIKMAAoILoGDDJLoGoHJEEFFHooo --strateg
 [188,60,D-1,GBBBKMGCCIKMoAAILoDDoJLoooHJEEFFHooo,18,4,5,23]
 [541,188,H+1,GBBBKMGCCIKMoAAILoDDHJLoooHJEEFFoooo,23,5,5,28]
 [...]
+
+#  Stats output
 ET: 386
 TN: 142104
 EN: 13330

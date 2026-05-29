@@ -50,9 +50,11 @@ jar --create --file rush-hour.jar --main-class main.Main -C bin .
 java -jar rush-hour.jar [args...]
 ```
 
+Or you can download the last version compiled directly from [**Releases**](https://github.com/pinfloy404/intelligent-systems-laboratory/releases/).
+
 ## Commands
 
-This project is structured in four incremental stages, each introducing new functionality, so each command correspond to different parts of the project, which were developed sequentially.
+This project is structured in four incremental stages, each introducing new functionality. Each command corresponds to different parts of the project, which were developed sequentially.
 
 ### Part One
 

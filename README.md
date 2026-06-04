@@ -1,10 +1,10 @@
 # Intelligent Systems Laboratory
 
-![java](https://img.shields.io/badge/Java-25-orange)
-![doc](https://img.shields.io/badge/Docs-Javadoc-yellow)
-![test](https://img.shields.io/badge/Tests-JUnit_6-green)
-![gpl](https://img.shields.io/badge/License-GPLv3-blue)
-![uclm](https://img.shields.io/badge/University-UCLM-red)
+![java](https://img.shields.io/badge/Java-darkorange?logo=openjdk&logocolor=white)
+![doc](https://img.shields.io/badge/Docs-JavaDoc-steelblue)
+![test](https://img.shields.io/badge/Test-JUnit-seagreen)
+![gpl](https://img.shields.io/badge/License-GPLv3-crimson)
+![uclm](https://img.shields.io/badge/University-UCLM-firebrick)
 
 A Java implementation that solves Rush Hour game using graph search algorithms.
 
@@ -125,17 +125,17 @@ java -jar rush-hour.jar solver -s [level] [strategy] [option] [option-args]
 
 This command solves the game with **graph search**, returning the sequence of nodes that leads to solution with these predefined node variables:
 
--  ID: Node ID
--  Parent: Parent node ID
--  Action: Movement applied to reach state
--  State: Current level
--  Cost: Cost to reach state
--  Depth: Node depth in graph
--  Heuristic: Heuristic value used by search algorithm
--  Value: Node value depending on graph search algorithm
+- ID: Node ID
+- Parent: Parent node ID
+- Action: Movement applied to reach state
+- State: Current level
+- Cost: Cost to reach state
+- Depth: Node depth in graph
+- Heuristic: Heuristic value used by search algorithm
+- Value: Node value depending on graph search algorithm
 
 > [!IMPORTANT]
-> The order of the variables in this list matches the order in which they appear in the node output 
+> The order of the variables in this list matches the order in which they appear in the node output
 
 To search in the nodes, this project includes these strategies:
 

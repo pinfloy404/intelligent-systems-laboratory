@@ -269,6 +269,6 @@ DF: 39
 
 ## License
 
-This repository uses the [GPLv3](https://choosealicense.com/licenses/gpl-3.0/) license.
+This project is licensed under the **GNU General Public License v3.0**. See the [LICENSE](LICENSE) file for details.
 
-This project has been imported from my **UCLM GitHub account** and the **Intelligent Systems course repository**, it includes modifications and corrections that are not present in the original.
+This project was originally imported from the **Intelligent Systems course repository** on my **UCLM GitHub account**. It contains several modifications, fixes, and improvements that are not included in the original version.
